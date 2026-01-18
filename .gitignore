@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+apps/**/node_modules
+packages/**/node_modules
 /.pnp
 .pnp.js
 
@@ -11,9 +13,19 @@
 # next.js
 /.next/
 /out/
+apps/**/.next/
 
 # production
 /build
+apps/**/dist/
+
+# turborepo
+.turbo/
+apps/**/.turbo/
+packages/**/.turbo/
+
+# claude
+.claude/
 
 # misc
 .DS_Store
