@@ -9,12 +9,12 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "dotenv": "^16.4.0",
-    "openai": "^4.77.0"
+    "dotenv": "^17.2.3",
+    "openai": "^6.16.0"
   },
   "devDependencies": {
     "@repo/typescript": "workspace:*",
-    "@types/node": "^22.10.0",
-    "typescript": "^5.7.0"
+    "@types/node": "^25.0.9",
+    "typescript": "^5.9.3"
   }
 }
