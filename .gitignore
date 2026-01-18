@@ -18,6 +18,7 @@ apps/**/.next/
 # production
 /build
 apps/**/dist/
+packages/**/dist/
 
 # turborepo
 .turbo/
