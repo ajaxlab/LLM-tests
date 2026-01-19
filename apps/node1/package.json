@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "tsx src/index.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint ."
   },
   "dependencies": {
-    "@repo/openai": "workspace:*"
+    "@repo/env": "workspace:*",
+    "openai": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint": "workspace:*",

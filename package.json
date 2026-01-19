@@ -6,7 +6,11 @@
     "dev": "turbo dev",
     "format": "turbo format",
     "format:check": "turbo format:check",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "start:node1": "pnpm --filter node1 start",
+    "start:node2": "pnpm --filter node2 start",
+    "start:web1": "pnpm --filter web1 start",
+    "start:web2": "pnpm --filter web2 start"
   },
   "devDependencies": {
     "@repo/eslint": "workspace:*",
