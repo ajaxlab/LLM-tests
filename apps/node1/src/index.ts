@@ -1,1 +1,1 @@
-console.log("hello1")
+import {} from '@repo/shared'

@@ -3,9 +3,13 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "format": "turbo format",
+    "format:check": "turbo format:check"
   },
   "devDependencies": {
+    "@repo/prettier": "workspace:*",
+    "prettier": "catalog:",
     "turbo": "^2.7.5"
   },
   "packageManager": "pnpm@9.15.0"

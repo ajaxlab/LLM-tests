@@ -6,13 +6,16 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "openai": "^6.16.0"
   },
   "devDependencies": {
+    "@repo/prettier": "workspace:*",
     "@repo/typescript": "workspace:*",
     "@types/node": "^25.0.9",
     "typescript": "catalog:"
