@@ -15,6 +15,6 @@
   "devDependencies": {
     "@repo/typescript": "workspace:*",
     "@types/node": "^25.0.9",
-    "typescript": "^5.9.3"
+    "typescript": "catalog:"
   }
 }

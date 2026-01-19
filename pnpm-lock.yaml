@@ -4,6 +4,12 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    typescript:
+      specifier: ^5.9.3
+      version: 5.9.3
+
 importers:
 
   .:
@@ -28,7 +34,7 @@ importers:
         specifier: ^4.21.0
         version: 4.21.0
       typescript:
-        specifier: ^5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   apps/node2:
@@ -47,7 +53,7 @@ importers:
         specifier: ^4.21.0
         version: 4.21.0
       typescript:
-        specifier: ^5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   apps/web1:
@@ -78,7 +84,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.8)
       typescript:
-        specifier: ^5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   apps/web2:
@@ -109,7 +115,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.8)
       typescript:
-        specifier: ^5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/shared:
@@ -128,7 +134,7 @@ importers:
         specifier: ^25.0.9
         version: 25.0.9
       typescript:
-        specifier: ^5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/typescript: {}
