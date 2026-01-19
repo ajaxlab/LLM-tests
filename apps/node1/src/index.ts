@@ -1,1 +1,1 @@
-import {} from '@repo/shared'
+import {} from '@repo/openai'

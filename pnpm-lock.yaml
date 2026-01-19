@@ -41,9 +41,9 @@ importers:
 
   apps/node1:
     dependencies:
-      '@repo/shared':
+      '@repo/openai':
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../packages/openai
     devDependencies:
       '@repo/eslint':
         specifier: workspace:*
@@ -69,9 +69,9 @@ importers:
 
   apps/node2:
     dependencies:
-      '@repo/shared':
+      '@repo/openai':
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../packages/openai
     devDependencies:
       '@repo/eslint':
         specifier: workspace:*
@@ -97,9 +97,9 @@ importers:
 
   apps/web1:
     dependencies:
-      '@repo/shared':
+      '@repo/openai':
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../packages/openai
       next:
         specifier: ^16.1.3
         version: 16.1.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -137,9 +137,9 @@ importers:
 
   apps/web2:
     dependencies:
-      '@repo/shared':
+      '@repo/openai':
         specifier: workspace:*
-        version: link:../../packages/shared
+        version: link:../../packages/openai
       next:
         specifier: ^16.1.3
         version: 16.1.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -194,13 +194,7 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
-  packages/prettier:
-    dependencies:
-      prettier:
-        specifier: 'catalog:'
-        version: 3.8.0
-
-  packages/shared:
+  packages/openai:
     dependencies:
       dotenv:
         specifier: ^17.2.3
@@ -227,6 +221,12 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+
+  packages/prettier:
+    dependencies:
+      prettier:
+        specifier: 'catalog:'
+        version: 3.8.0
 
   packages/typescript: {}
 
