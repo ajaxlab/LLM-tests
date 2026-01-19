@@ -5,10 +5,13 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "format": "turbo format",
-    "format:check": "turbo format:check"
+    "format:check": "turbo format:check",
+    "lint": "turbo lint"
   },
   "devDependencies": {
+    "@repo/eslint": "workspace:*",
     "@repo/prettier": "workspace:*",
+    "eslint": "catalog:",
     "prettier": "catalog:",
     "turbo": "^2.7.5"
   },

@@ -7,14 +7,17 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@repo/shared": "workspace:*"
   },
   "devDependencies": {
+    "@repo/eslint": "workspace:*",
     "@repo/prettier": "workspace:*",
     "@repo/typescript": "workspace:*",
+    "eslint": "catalog:",
     "@types/node": "^25.0.9",
     "tsx": "catalog:",
     "typescript": "catalog:"

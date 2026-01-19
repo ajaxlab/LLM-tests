@@ -8,15 +8,18 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "openai": "^6.16.0"
   },
   "devDependencies": {
+    "@repo/eslint": "workspace:*",
     "@repo/prettier": "workspace:*",
     "@repo/typescript": "workspace:*",
+    "eslint": "catalog:",
     "@types/node": "^25.0.9",
     "typescript": "catalog:"
   }

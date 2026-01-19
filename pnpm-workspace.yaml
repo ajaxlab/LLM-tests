@@ -6,3 +6,4 @@ catalog:
   typescript: ^5.9.3
   tsx: ^4.21.0
   prettier: ^3.5.3
+  eslint: ^9.27.0

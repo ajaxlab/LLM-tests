@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start --port 3001",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
@@ -16,8 +17,10 @@
     "react-dom": "^19.2.3"
   },
   "devDependencies": {
+    "@repo/eslint": "workspace:*",
     "@repo/prettier": "workspace:*",
     "@repo/typescript": "workspace:*",
+    "eslint": "catalog:",
     "@types/node": "^25.0.9",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
