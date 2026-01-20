@@ -11,6 +11,7 @@
     "format": "turbo format",
     "format:check": "turbo format:check",
     "lint": "turbo lint",
+    "lint:fix": "turbo lint -- --fix",
     "start:node1": "pnpm --filter node1 start",
     "start:node2": "pnpm --filter node2 start",
     "start:web1": "pnpm --filter web1 start",
