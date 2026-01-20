@@ -1,3 +1,4 @@
+import fs from "fs"
 import { createOpenAI } from '@repo/openai'
 import { pdfToText } from '@repo/pdf'
 
@@ -29,4 +30,14 @@ export async function createPdfSummary(path: string): Promise<string> {
   })
 
   return response.output_text
+}
+
+export async function speechToText(path: string): Promise<string> {
+  const openai = createOpenAI()
+  const transcription = await openai.audio.transcriptions.create({
+    file: fs.createReadStream(path),
+    model: "whisper-1",
+  });
+
+  return transcription.text
 }
