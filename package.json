@@ -3,6 +3,10 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "build:node1": "pnpm --filter node1 build",
+    "build:node2": "pnpm --filter node2 build",
+    "build:web1": "pnpm --filter web1 build",
+    "build:web2": "pnpm --filter web2 build",
     "dev": "turbo dev",
     "format": "turbo format",
     "format:check": "turbo format:check",

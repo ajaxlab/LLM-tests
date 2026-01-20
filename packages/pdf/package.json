@@ -1,0 +1,17 @@
+{
+  "name": "@repo/pdf",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@repo/typescript": "workspace:*",
+    "@types/pdf-parse": "^1.1.4",
+    "typescript": "catalog:"
+  }
+}
