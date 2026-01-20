@@ -35,8 +35,18 @@ export async function createPdfSummary(path: string): Promise<string> {
 export async function speechToText(path: string): Promise<string> {
   const openai = createOpenAI()
   const transcription = await openai.audio.transcriptions.create({
-    file: fs.createReadStream(path),
     model: "whisper-1",
+    file: fs.createReadStream(path),
+  });
+
+  return transcription.text
+}
+
+export async function speechToTranslation(path: string): Promise<string> {
+  const openai = createOpenAI()
+  const transcription = await openai.audio.translations.create({
+    model: "whisper-1",
+    file: fs.createReadStream(path),
   });
 
   return transcription.text

@@ -1,4 +1,4 @@
-import { createPdfSummary, speechToText } from '@repo/ai-util'
+import { createPdfSummary, speechToTranslation } from '@repo/ai-util'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -9,7 +9,7 @@ async function main() {
   // const summary = await createPdfSummary(join(__dirname, 'sample.pdf'))
   // console.log(summary)
 
-  const text = await speechToText(join(__dirname, 'sample.mp3'))
+  const text = await speechToTranslation(join(__dirname, 'sample.mp3'))
   console.log(text)
 }
 
