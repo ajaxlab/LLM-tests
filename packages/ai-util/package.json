@@ -1,5 +1,5 @@
 {
-  "name": "@repo/openai",
+  "name": "@repo/ai-util",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -7,8 +7,8 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@repo/env": "workspace:*",
-    "openai": "catalog:"
+    "@repo/openai": "workspace:*",
+    "@repo/pdf": "workspace:*"
   },
   "devDependencies": {
     "@repo/typescript": "workspace:*",

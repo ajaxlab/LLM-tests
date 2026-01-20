@@ -12,8 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@repo/pdf": "workspace:*",
-    "openai": "catalog:"
+    "@repo/ai-util": "workspace:*"
   },
   "devDependencies": {
     "@repo/eslint": "workspace:*",

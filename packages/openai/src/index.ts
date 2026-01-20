@@ -1,3 +1,4 @@
+import '@repo/env'
 import { OpenAI } from 'openai';
 
 export function createOpenAI(): OpenAI {
