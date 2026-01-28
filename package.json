@@ -13,7 +13,8 @@
     "lint": "turbo lint",
     "lint:fix": "turbo lint -- --fix",
     "start:node1": "pnpm --filter node1 start",
-    "start:node2": "pnpm --filter node2 start",
+    "start:pdf-summary": "pnpm --filter pdf-summary start",
+    "start:stt": "pnpm --filter stt start",
     "start:web1": "pnpm --filter web1 start",
     "start:web2": "pnpm --filter web2 start"
   },
