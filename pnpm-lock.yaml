@@ -104,6 +104,34 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  apps/pdf-summary:
+    dependencies:
+      '@repo/ai-util':
+        specifier: workspace:*
+        version: link:../../packages/ai-util
+    devDependencies:
+      '@repo/eslint':
+        specifier: workspace:*
+        version: link:../../packages/eslint
+      '@repo/prettier':
+        specifier: workspace:*
+        version: link:../../packages/prettier
+      '@repo/typescript':
+        specifier: workspace:*
+        version: link:../../packages/typescript
+      '@types/node':
+        specifier: ^25.0.9
+        version: 25.0.9
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.2
+      tsx:
+        specifier: 'catalog:'
+        version: 4.21.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
   apps/web1:
     dependencies:
       next:

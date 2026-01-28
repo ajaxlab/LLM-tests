@@ -1,0 +1,26 @@
+{
+  "name": "pdf-summary",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@repo/ai-util": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/eslint": "workspace:*",
+    "@repo/prettier": "workspace:*",
+    "@repo/typescript": "workspace:*",
+    "eslint": "catalog:",
+    "@types/node": "^25.0.9",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}
