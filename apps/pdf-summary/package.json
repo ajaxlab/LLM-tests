@@ -19,7 +19,7 @@
     "@repo/prettier": "workspace:*",
     "@repo/typescript": "workspace:*",
     "eslint": "catalog:",
-    "@types/node": "^25.0.9",
+    "@types/node": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
   }
