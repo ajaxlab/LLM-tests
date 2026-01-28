@@ -50,3 +50,8 @@ next-env.d.ts
 
 *.pdf
 *.mp3
+
+#python
+nul
+debug.txt
+result.json

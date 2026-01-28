@@ -62,16 +62,62 @@ input_features = processor(
 
 # 모델을 사용하여 음성을 텍스트로 변환 (추론 수행)
 # input_features: 멜 스펙트로그램 입력
-# return_timestamps=True: 단어/세그먼트별 타임스탬프 정보 포함 (더 정확한 결과)
-# 반환값: 예측된 토큰 ID 시퀀스
+# return_timestamps=True: 타임스탬프 토큰 생성 활성화
+# 반환값: 예측된 토큰 ID 시퀀스 (타임스탬프 토큰 포함)
 predicted_ids = model.generate(input_features, return_timestamps=True)
 
-# 예측된 토큰 ID를 사람이 읽을 수 있는 텍스트로 디코딩
-# batch_decode: 배치 단위로 여러 시퀀스를 한 번에 디코딩
-# skip_special_tokens=True: <|startoftranscript|>, <|endoftext|> 등 특수 토큰 제거
-# 반환값: 디코딩된 텍스트 리스트
-transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
+# 타임스탬프 토큰의 시작 ID (이 ID부터가 타임스탬프 토큰)
+# Whisper는 50365를 0.00초로 사용, 이후 0.02초 단위로 증가
+timestamp_begin = processor.tokenizer.convert_tokens_to_ids("<|0.00|>")
 
-# 첫 번째 (유일한) 트랜스크립션 결과 출력
-# transcription[0]: 배치의 첫 번째 결과 (단일 오디오 파일이므로 인덱스 0)
-print(transcription)
+# 초 단위를 MM:SS.ss 형식으로 변환하는 함수
+def format_time(seconds):
+    mins = int(seconds // 60)
+    secs = seconds % 60
+    return f"{mins:02d}:{secs:05.2f}"
+
+# 토큰 ID 시퀀스를 세그먼트로 파싱
+# 타임스탬프 토큰 사이의 일반 토큰들을 텍스트로 변환
+token_ids = predicted_ids[0].tolist()
+segments = []
+current_tokens = []
+start_time = None
+time_offset = 0.0  # 30초 청크 오프셋 (Whisper는 30초마다 타임스탬프 리셋)
+last_timestamp = 0.0  # 이전 타임스탬프 (리셋 감지용)
+
+for token_id in token_ids:
+    # 타임스탬프 토큰인지 확인 (timestamp_begin 이상이면 타임스탬프)
+    if token_id >= timestamp_begin:
+        # 타임스탬프 값 계산: (token_id - timestamp_begin) * 0.02초
+        raw_timestamp = (token_id - timestamp_begin) * 0.02
+
+        # 타임스탬프가 이전보다 작으면 30초 청크가 리셋된 것
+        # 오프셋에 30초 추가
+        if raw_timestamp < last_timestamp - 1.0:  # 1초 여유를 두고 리셋 감지
+            time_offset += 30.0
+
+        timestamp = raw_timestamp + time_offset
+        last_timestamp = raw_timestamp
+
+        if start_time is None:
+            # 첫 타임스탬프 = 세그먼트 시작
+            start_time = timestamp
+        else:
+            # 두 번째 타임스탬프 = 세그먼트 종료
+            if current_tokens:
+                text = processor.tokenizer.decode(current_tokens, skip_special_tokens=True)
+                if text.strip():
+                    segments.append({
+                        "start": format_time(start_time),
+                        "end": format_time(timestamp),
+                        "text": text.strip()
+                    })
+            current_tokens = []
+            start_time = timestamp
+    else:
+        # 일반 토큰은 현재 세그먼트에 추가
+        current_tokens.append(token_id)
+
+# JSON 형식으로 보기 좋게 출력
+import json
+print(json.dumps(segments, ensure_ascii=False, indent=2))
